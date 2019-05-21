@@ -8,13 +8,19 @@ if (interactive()) {
                   accept = c(
                     "text/csv",
                     "text/comma-separated-values,text/plain",
-                    ".csv")
+                    ".csv"),
+                  
+                  
         ),
         tags$hr(),
         checkboxInput("header", "Header", TRUE)
       ),
       mainPanel(
-        tableOutput("contents")
+        tableOutput("contents"),
+        helpText("Note: while the data view will show only",
+                 "the specified number of observations, the",
+                 "summary will be based on the full dataset.")
+        
       )
     )
   )
