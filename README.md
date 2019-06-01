@@ -1,4 +1,4 @@
-# Boosted_HP_APP ![image](https://github.com/chenyang45/Boosted_HP_APP/blob/master/www/shiny.PNG)
+# Boosted_HP_APP ![image](https://github.com/chenyang45/Boosted_HP_APP/blob/master/www/shiny from rstudio.PNG)
 Use "shiny" to creat an APP for Boosted_HP
 
 # Debug task
