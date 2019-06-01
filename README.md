@@ -1,4 +1,5 @@
 # Boosted_HP_APP ![image](https://github.com/chenyang45/Boosted_HP_APP/blob/master/www/shiny.PNG)
+<img style="width:50px;height:50px" src="https://github.com/chenyang45/Boosted_HP_APP/blob/master/www/shiny.PNG"  alt="Use "shiny" to creat an APP for Boosted_HP" align=center />
 Use "shiny" to creat an APP for Boosted_HP
 
 # Debug task
