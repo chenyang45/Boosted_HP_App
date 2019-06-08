@@ -6,7 +6,14 @@ library(shiny)
 
 ui <- fluidPage(
   titlePanel("My Shiny App"),
+  
+  
+  
+  
   sidebarLayout(
+  
+    
+    
     sidebarPanel(
       h2("Installation"),
       p("Shiny is available on CRAN, so you can install it in the usual way from your R console:"),
