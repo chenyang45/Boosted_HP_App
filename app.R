@@ -20,6 +20,8 @@ ui <- fluidPage(
       code('install.packages("shiny")'),
       br(),
       br(),
+      p("Change the context for text"),
+      p("Shiny is available on CRAN, so you can install it in the usual way from your R console:"),
       br(),
       br(),
       img(src = "rstudio.png", height = 70, width = 200),
@@ -29,7 +31,7 @@ ui <- fluidPage(
     ),
     mainPanel(
       h1("Introducing Shiny"),
-      p("Shiny is a new package from RStudio that makes it ", 
+      p("Shiny is a new package from RStudio that makes it that ", 
         em("incredibly easy "), 
         "to build interactive web applications with R."),
       br(),
