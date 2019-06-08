@@ -1,0 +1,7 @@
+Title: Boosted HP APP
+Author: CHEN Yang
+AuthorUrl: https://github.com/chenyang45
+License: MIT
+DisplayMode: Showcase
+Tags: BoostedHP
+Type: Shiny
