@@ -5,6 +5,6 @@ account: chenyang1
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 971765
-bundleId: 2139793
+bundleId: 2140313
 url: https://chenyang1.shinyapps.io/boosted_hp_app/
-when: 1560014181.97231
+when: 1560053295.51929

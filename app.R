@@ -73,14 +73,7 @@ ui <- fluidPage(
       
       h2("Downloading Files "),
       downloadButton("downloadData", "Download"),
-      helpText("Download Files After the Boosted HP Filter in the default 'Download Document' in your computer.")
-      ),
-    
-     
-  
-    
-    # Main panel for displaying outputs ----
-    mainPanel(
+      helpText("Download Files After the Boosted HP Filter in the default 'Download Document' in your computer."),
       
       # Horizontal line ----
       tags$hr(),
@@ -91,8 +84,23 @@ ui <- fluidPage(
       helpText("Create user friendly app through 'Shiny'."),
       p("For more information of the APP, visit the Boosted_HP_App",
         a(" Github Repository.", 
-          href = "https://github.com/chenyang45/Boosted_HP_App")),
-      tags$hr(),
+          href = "https://github.com/chenyang45/Boosted_HP_App"))
+      
+      
+      
+      
+      
+      ),
+    
+     
+  
+    
+    # Main panel for displaying outputs ----
+    mainPanel(
+      
+     # tags$hr(),
+      
+      textOutput("currentTime"),
       
       # --------------- Define UI for argument in BoostedHP.R ------------------
       #column(5,
@@ -171,7 +179,7 @@ ui <- fluidPage(
 
 
 # Define server logic to read selected file ----
-server <- function(input, output) {
+server <- function(input, output, session) {
   
   #req(input$file1)
   
@@ -200,7 +208,7 @@ server <- function(input, output) {
     
     bt_results <- do.call(BoostedHP, args)
     #function(rawdata, trend, p_history, plot_type){
-    Boostedplot(rawdata, bt_results$trend, bt_results[[4]], input$Type )
+    Boostedplot(rawdata, bt_results[[2]], bt_results[[4]], input$Type )
     
     
     
@@ -215,6 +223,24 @@ server <- function(input, output) {
     #dataset <- datasetInput()
     summary(input$file1)
   })
+  
+  
+  output$currentTime <- renderText({
+    invalidateLater(1000, session)
+    paste("The current time is", Sys.time())
+  })
+  
+  output$table <- renderTable({
+    bt_results <- do.call(BoostedHP, args)
+    summary(bt_results[[2]])
+    
+  }
+    
+  )
+    
+    
+  
+  
   
   output$contents <- renderTable({
     
