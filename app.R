@@ -82,6 +82,18 @@ ui <- fluidPage(
     # Main panel for displaying outputs ----
     mainPanel(
       
+      # Horizontal line ----
+      tags$hr(),
+      img(src = "shiny from rstudio.png", height = 70, width = 100),
+      br(),
+      span("Shiny", style = "color:blue"),
+      " is a product of RStudio", 
+      helpText("Create user friendly app through 'Shiny'."),
+      p("For more information of the APP, visit the Boosted_HP_App",
+        a(" Github Repository.", 
+          href = "https://github.com/chenyang45/Boosted_HP_App")),
+      tags$hr(),
+      
       # --------------- Define UI for argument in BoostedHP.R ------------------
       #column(5,
       h2("Argument Options"),
@@ -114,8 +126,10 @@ ui <- fluidPage(
       
       # Output: Data file ----
       #column(3,
-      h2("View the Input Data"),
-      tableOutput("contents"), 
+      #h2("View the Input Data"),
+      #tableOutput("contents"), 
+      #h2("Summary"),
+      #verbatimTextOutput("summary"),
       #),
       
       # Horizontal line ----
@@ -133,23 +147,16 @@ ui <- fluidPage(
                 h3("End Date of Input Data (valid only for ts plot)"), 
                 value = "2014-01-01"),
       
-      plotOutput("Boostedplot"),
-      
-      
-      
-      
-      
-      
-      # Horizontal line ----
+      #plotOutput("Boostedplot"),
       tags$hr(),
-      img(src = "shiny from rstudio.png", height = 70, width = 100),
-      br(),
-      span("Shiny", style = "color:blue"),
-      " is a product of RStudio", 
-      helpText("Create user friendly app through 'Shiny'."),
-      p("For more information of the APP, visit the Boosted_HP_App",
-        a(" Github Repository.", 
-          href = "https://github.com/chenyang45/Boosted_HP_App"))
+      # Output: Tabset w/ plot, summary, and table ----
+      tabsetPanel(type = "tabs",
+                  tabPanel("Input Data", tableOutput("contents")),
+                  tabPanel("Plot", plotOutput("Boostedplot")),
+                  tabPanel("Summary", verbatimTextOutput("summary")),
+                  tabPanel("Results Table", tableOutput("table")))
+    
+      
     )
       
     )
@@ -201,6 +208,13 @@ server <- function(input, output) {
     
   })
   
+  # Generate a summary of the dataset ----
+  output$summary <- renderPrint({
+    req(input$file1)
+    
+    #dataset <- datasetInput()
+    summary(input$file1)
+  })
   
   output$contents <- renderTable({
     
