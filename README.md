@@ -3,13 +3,13 @@ Use "shiny" to creat an APP for Boosted_HP!
 
 Welcome to visit the website of Boosted HP App at https://chenyang1.shinyapps.io/boosted_hp_app/.
 
+version : 0.0.1
 
-# Debug task
+2019-06-09 
 
-1.the downlaod file version(csv) can only work when the APP is opened in Browser. 
+## Introduction
 
-2.The downlaod document is "Downlaod" by default, better give user path chooses. 
+This is an accompanying APP for the paper:
 
-3. plot 5 types haven't finished yet.
-
+Peter Phillips and Zhentao Shi (2018): "Boosting the Hodrick-Prescott Filter"
 

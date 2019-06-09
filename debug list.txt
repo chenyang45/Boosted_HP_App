@@ -1,0 +1,7 @@
+# Debug task
+
+1.the downlaod file version(csv) can only work when the APP is opened in Browser. 
+
+2.The downlaod document is "Downlaod" by default, better give user path chooses. 
+
+3. plot 5 types haven't finished yet.
