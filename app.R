@@ -7,6 +7,7 @@
 #-----------------------------------------------------------------
 # By: Chen Yang (chen_yang@link.cuhk.edu.hk)
 # Date: 2019-05-20
+# Update: 2019-07-01
 #=================================================================
 
 library(shiny)
@@ -99,6 +100,7 @@ ui <- fluidPage(
     mainPanel(
       
      # tags$hr(),
+      
       
       textOutput("currentTime"),
       
