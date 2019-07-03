@@ -7,7 +7,7 @@
 #-----------------------------------------------------------------
 # By: Chen Yang (chen_yang@link.cuhk.edu.hk)
 # Date: 2019-05-20
-# Update: 2019-07-01
+# Update: 2019-07-03
 #=================================================================
 
 library(shiny)
@@ -91,15 +91,15 @@ ui <- fluidPage(
       
       
       
-      ),
+    ),
     
-     
-  
+    
+    
     
     # Main panel for displaying outputs ----
     mainPanel(
       
-     # tags$hr(),
+      # tags$hr(),
       
       
       textOutput("currentTime"),
@@ -165,11 +165,11 @@ ui <- fluidPage(
                   tabPanel("Plot", plotOutput("Boostedplot")),
                   tabPanel("Summary", verbatimTextOutput("summary")),
                   tabPanel("Results Table", tableOutput("table")))
+      
+      
+    )
     
-      
-    )
-      
-    )
+  )
 )
 
 
@@ -223,7 +223,23 @@ server <- function(input, output, session) {
     req(input$file1)
     
     #dataset <- datasetInput()
-    summary(input$file1)
+    #summary( as.numeric(input$file1))
+    
+    tryCatch(
+      {
+        df <- read.csv(input$file1$datapath,
+                       header = input$header,
+                       sep = input$sep,
+                       quote = input$quote)
+      },
+      error = function(e) {
+        # return a safeError if a parsing error occurs
+        stop(safeError(e))
+      }
+    )
+    
+    summary(df)
+    
   })
   
   
@@ -237,10 +253,10 @@ server <- function(input, output, session) {
     summary(bt_results[[2]])
     
   }
-    
+  
   )
-    
-    
+  
+  
   
   
   
