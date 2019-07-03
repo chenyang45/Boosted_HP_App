@@ -5,11 +5,23 @@ Welcome to visit the website of Boosted HP App at https://chenyang1.shinyapps.io
 
 version : 0.0.1
 
-2019-06-09 
+start: 2019-06-09 
+update: 2019-07-03
+
 
 ## Introduction
 
 This is an accompanying APP for the paper:
 
 Peter Phillips and Zhentao Shi (2018): "Boosting the Hodrick-Prescott Filter"
+
+## Memo
+
+Update the bundle via:
+
+```
+rsconnect::deployApp("C:/Users/chenyang/Documents/GitHub/Boosted_HP_APP")
+
+```
+
 
