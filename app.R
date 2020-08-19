@@ -112,20 +112,14 @@ ui <- fluidPage(
       #checkboxInput("checkbox", "Choice A", value = TRUE),
       
       numericInput("lambda", label = "Set the lambda for HP filter",value = 1600),
-      radioButtons("iter", label = "Iterated",
-                   choices = list("Ture" = "TURE", "False" = "FALSE"),selected = "TURE"),
+
       selectInput("testtype", 
                   label = "Choose the test type to display",
-                  choices = list("HP once", 
-                                 "ADF",
-                                 "BIC"),
-                  selected = "none"),
-      selectInput("pvalue", 
-                  label = "Choose the p-value of significance",
-                  choices = list("0.010", 
-                                 "0.050",
-                                 "0.100"),
-                  selected = "0.050"),
+                  choices = list("nonstop", 
+                                 "bHP-ADF",
+                                 "bHP-BIC"),
+                  selected = "bHP-BIC"),
+      
       numericInput("maxnum", label = "Maximum Iterated Number",value = 100),
       
       #),
@@ -200,9 +194,9 @@ server <- function(input, output, session) {
     arg$lambda <- input$lambda
     
     arg$test_type <- switch(input$testtype, 
-                            "HP once" = "none",
-                            "ADF" = "adf",
-                            "BIC" = "BIC")
+                            "nonstop" = "none",
+                            "bHP-ADF" = "adf",
+                            "bHP-BIC" = "BIC")
     
     arg$sig_p <- input$p_value
     
